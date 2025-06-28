@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grand depart Arnhem</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: black;
+    }
+ header {
+  background-color: yellow;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img-only {
+  height: 100px;
+  max-width: 80%;
+}
+
+    nav {
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+  color: white;
+  padding: 1em;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+    nav a:hover {
+  background-color: yellow;
+  color: black;
+  transform: scale(1.5);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+    main {
+      padding: 2em;
+    }
+    section {
+      display: none;
+      background-color: #f9f9f9;
+      border: 2px solid black;
+      padding: 1em;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+    section.active {
+      display: block;
+    }
+     
+  
+    footer {
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      position: relative;
+    }
+    .ig-logo {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 30px;
+    }
+    h2 {
+      color: #ffcc00;
+    }
+    h3 {
+      color: #333;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+  
+    #home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-image: url('https://www.gmr.nl/media/e2glb4hw/arnhem_centrum_7.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 0;
+  overflow: hidden;
+}
+#home:not(.active) {
+  display: none !important;
+  background-image: none !important;
+}
+
+
+#home.active {
+  z-index: 1;
+  position: relative;
+}
+
+#home::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* dark overlay */
+  z-index: 1;
+}
+
+#home h2, #home h3 {
+  z-index: 2;
+  color: white;
+  margin: 0.5em;
+}
+
+
+
+   
+    #map {
+      padding: 0;
+      margin: 0;
+      border: none;
+      height: 100vh;
+      width: 100vw;
+      max-width: 100%;
+      position: relative;
+    }
+    #map iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 0.5em;
+      text-align: left;
+    }
+    th {
+      background-color: #ffcc00;
+      color: black;
+    }
+    .parking-info, .recommendations {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1em;
+}
+
+.parking-info li, .recommendations li {
+  margin: 0.5em 0;
+  font-size: 1.05em;
+}
+
+.highlight {
+  background-color: #fff4c2;
+  padding: 1em;
+  border-left: 6px solid #ffcc00;
+  border-radius: 5px;
+  margin: 1em 0;
+}
+
+.tag {
+  font-weight: bold;
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
+  color: white;
+}
+
+.tag.red { background-color: #e74c3c; }
+.tag.blue { background-color: #3498db; }
+.tag.green { background-color: #2ecc71; }
+.tag.purple { background-color: #9b59b6; }
+
+  </style>
+</head>
+<body>
+ <header>
+  <img src="baguettistes_logo_2.png" alt="Event Logo" class="logo-img-only" />
+</header>
+
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#parking">Parking</a>
+    <a href="#blocked">Blocked Roads</a>
+    <a href="#map">Map</a>
+    <a href="#arnhem">About Arnhem</a>
+    <a href="#schedule">Schedule</a>
+    <a href="#volunteers">Volunteers</a>
+    <a href="#baguettistes">Baguettistes</a>
+  </nav>
+  <main>
+    <section id="home" class="active">
+      <h2>Welcome to Grand Départ Arnhem</h2>
+<h3>One place. One city. A whole new image.</h3>
+
+
+    </section>
+    <section id="parking">
+  <h2>Parking & Shuttle Service</h2>
+  <h3>Grand Départ Arnhem 2028</h3>
+  <p class="highlight">
+    With over <strong>175,000 visitors</strong> expected, special <strong>Park & Ride zones</strong> have been established on the outskirts of Arnhem.
+    Visitors <strong>must register in advance</strong> for a parking spot through the official event website.
+  </p>
+<p>Each parking zone—color-coded as Red, Blue, Green, or Purple—is connected to the city centre via a dedicated shuttle bus system. These buses run frequently and are clearly marked to avoid confusion. Residents living within the race route area are requested to move their vehicles to private garages or outside the restricted zone before the event begins. For cyclists, secure bike parking will be available near key viewing areas. Detailed parking maps and shuttle timetables will be shared ahead of the event to ensure a smooth arrival experience for everyone.
+
+
+Which Parking Area Should You Use?
+To help manage traffic and ensure a smooth arrival, visitors are advised to use specific Park & Ride zones based on their point of origin.
+<li>If you're coming from The Hague, Rotterdam, or Amsterdam, please follow signs to the Purple Parking area.</li>
+<li>Visitors traveling from Germany should enter Arnhem via the A12 highway and proceed to the Green Parking zone.</li>
+<li>Those coming from the Zwolle or Friesland regions are advised to use the Red Parking area, which is directly accessible from the A50.</li>
+<li>If you're driving from Belgium, Nijmegen, or Eindhoven, please follow directions to the Blue Parking zone.</li>
+Each parking area is clearly marked and connected to the city center via color-coded shuttle buses. Signage will be posted starting 20 km before city entry and throughout your route to guide you efficiently to the right location.</p>
+
+<p>📍 <strong>Parking Locations & Navigation</strong><br>
+All official Park & Ride zones for the Grand Départ Arnhem 2028 are located just outside the city and are easily accessible from major highways. Use the links below to navigate directly to each parking area:</p>
+<ul>
+  <li>🟥 <strong>Red Parking</strong> (ideal for visitors from Zwolle & Friesland): <a href="https://maps.app.goo.gl/Qw6hkHwJxkEGuMtY6" target="_blank">Open in Maps</a></li>
+  <li>🟪 <strong>Purple Parking</strong> (for visitors from The Hague, Rotterdam & Amsterdam): <a href="https://maps.app.goo.gl/1mBydjYvXZhdb8Ar5" target="_blank">Open in Maps</a></li>
+  <li>🟩 <strong>Green Parking</strong> (for visitors from Germany via A12): <a href="https://maps.app.goo.gl/6k8ahKwGgeBFr9Bg7" target="_blank">Open in Maps</a></li>
+  <li>🟦 <strong>Blue Parking</strong> (for visitors from Belgium, Nijmegen & Eindhoven): <a href="https://maps.app.goo.gl/APFE7xrKttx11vu78" target="_blank">Open in Maps</a></li>
+</ul>
+<p>Each parking location is connected to the city center by a frequent, color-coded shuttle bus. Make sure to register your parking in advance via the official event website.</p>
+
+</section>
+    <section id="blocked">
+  <h2>Road Closures – Grand Départ Arnhem 2028</h2>
+  <p>During the Grand Départ, extensive road closures will be in effect throughout Arnhem to ensure the safety of spectators, cyclists, and staff. Key streets within and surrounding the race route will be closed to regular traffic, including central locations near Kerkplein, John Frost Bridge, and Sonsbeek Park. Access will be restricted to emergency and accredited vehicles only. Anti-terrorism barriers will be placed at major intersections to prevent unauthorized vehicle entry in densely populated areas. Clear signage and guidance will be provided both online and on-site to inform visitors and residents of the affected zones. We kindly advise all residents and local businesses to plan ahead and follow updated traffic instructions shared via the event website and app.
+
+</p>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1em;">
+    <img src="Screenshot 2025-06-09 at 21.27.12.png" alt="Roadblock Map 1" style="width: 100%; border-radius: 8px;">
+    <img src="Screenshot 2025-06-09 at 21.27.48.png" alt="Roadblock Map 2" style="width: 100%; border-radius: 8px;">
+    <img src="Screenshot 2025-06-09 at 21.26.43.png" alt="Roadblock Map 3" style="width: 100%; border-radius: 8px;">
+    <img src="Screenshot 2025-06-09 at 21.28.33.png" alt="Roadblock Map 4" style="width: 100%; border-radius: 8px;">
+  </div>
+
+  <p style="margin-top: 1em;">
+    🚦 Traffic signage will be installed 48 hours before closures. Please follow local directions and use recommended detour routes shown in the visuals above.
+  </p>
+</section>
+
+    <section id="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2436.5124974431517!2d5.898729515989508!3d51.98510329813717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c7a89dd3b7c5d5%3A0x5cd6c1e97be7fc0f!2sArnhem!5e0!3m2!1sen!2snl!4v1626779356745!5m2!1sen!2snl" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+    <section id="arnhem">
+  <h2>Discover Arnhem</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 2em; align-items: center;">
+    <div style="flex: 1; min-width: 300px;">
+      <img src="https://www.holland.com/upload_mm/9/2/0/83998_fullimage_jansplaats%20arnhem%20met%20gezellige%20terrasjes%20%C2%A9%20%C2%A9%20photography%20jurjen%20drenth_1150x663.jpg"
+           alt="Arnhem city view" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+    </div>
+    <div style="flex: 2; min-width: 300px; font-size: 1.1em; line-height: 1.6;">
+      <p>
+        Nestled along the banks of the Rhine, <strong>Arnhem</strong> is a vibrant city where history, nature, and modern creativity come together. As the capital of the province of Gelderland, Arnhem is known for its green spaces, rich World War II heritage, and dynamic cultural life. From the iconic John Frost Bridge to the hills of the nearby Veluwe National Park, the city offers an amazing blend of urban energy and natural beauty.
+
+Arnhem, as many cities in the Netherlands, has a strong cycling culture and a deep love for sport, making it the perfect host for the Grand Départ. Locals and visitors will all feel the excitement as the city comes alive with yellow spirit, fan zones, and festivities. Whether you’re exploring the city center, enjoying local culture on a sunny terrace, or cheering on the riders as they race through the streets, Arnhem promises a warm welcome and unforgettable experience.
+
+With its creative atmosphere, welcoming community, and beautiful surroundings, Arnhem is more than just the starting point of the Tour, it’s a destination worth discovering!</p>
+  
+    </section>
+    <section id="schedule">
+      <h2>Schedule</h2>
+
+      <h3>Teampresentation Day – 22.06.2028</h3>
+      <table>
+        <tr><th>Time</th><th>Event</th><th>Location</th></tr>
+        <tr><td>11:00</td><td>Opening fanpark</td><td>Sonsbeek weg 144, 6814 CL Arnhem</td></tr>
+        <tr><td>17:45</td><td>Presenters open the teampresentation</td><td>Weekmarkt stage</td></tr>
+        <tr><td>18:00–18:15</td><td>Mayor’s speech</td><td>Weekmarkt stage</td></tr>
+        <tr><td>18:10</td><td>1st team start biking route</td><td>Musis – Weekmarkt</td></tr>
+        <tr><td>18:15–18:20</td><td>Team presentation – Team 1</td><td>Weekmarkt</td></tr>
+        <tr><td>18:15–20:25</td><td>Team presentations – Teams 2–22</td><td>Weekmarkt</td></tr>
+        <tr><td>19:45–19:55</td><td>Break + performance</td><td>Weekmarkt</td></tr>
+        <tr><td>20:25</td><td>Presenters close the teampresentations</td><td>Weekmarkt</td></tr>
+        <tr><td>20:30</td><td>Fanpark closing</td><td>Sonsbeek weg 144, 6814 CL Arnhem</td></tr>
+      </table>
+
+      <h3>Rest Day – 23.06.2028</h3>
+      <p>On Friday you can explore the beautiful city of Arnhem and discover its rich history. The fanpark will be open from 11:00 to 19:00 in Sonsbeekpark. Experience the Tour de France festive atmosphere with food, drinks, merchandise stands, and exciting workshops. The park also offers a scenic view of the prologue route.</p>
+
+      <h3>Prologue Day – 24.06.2028</h3>
+      <table>
+        <tr><th>Time</th><th>Event</th><th>Location</th></tr>
+        <tr><td>09:00</td><td>Opening fanpark</td><td>Sonsbeekweg 144, 6814 CL Arnhem</td></tr>
+        <tr><td>10:00</td><td>Reconnaissance</td><td>Along the route</td></tr>
+        <tr><td>11:00</td><td>Publicity caravans</td><td>Along the route</td></tr>
+        <tr><td>14:00</td><td>Official prologue start – Cyclist 1</td><td>Weekmarkt</td></tr>
+        <tr><td>16:55</td><td>Cyclist 176 starts</td><td>Weekmarkt</td></tr>
+        <tr><td>17:15</td><td>Official prologue end</td><td>Nijmeegseweg, 6841 HG Arnhem</td></tr>
+        <tr><td>17:30–18:00</td><td>Award ceremony</td><td>—</td></tr>
+        <tr><td>20:00</td><td>Closing fanpark</td><td>Sonsbeekpark</td></tr>
+      </table>
+    </section>
+    <section id="volunteers">
+  <h2>Become a Tour Maker</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 2em; align-items: center;">
+    
+    <!-- Volunteer Image -->
+    <div style="flex: 1; min-width: 300px;">
+      <img src="volunteers.png" alt="Tour Maker Volunteers" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+    </div>
+    
+    <!-- Volunteer Content -->
+    <div style="flex: 2; min-width: 300px; font-size: 1.05em; line-height: 1.6;">
+      <p>
+        In June 2028, <strong>Arnhem</strong> will host the world's most iconic cycling event — the Grand Départ. We’re calling on enthusiastic,
+        energetic people to help make it unforgettable. As a <strong>Tour Maker</strong>, you'll be at the heart of this once-in-a-lifetime experience.
+      </p>
+      <ul style="list-style: none; padding-left: 0;">
+        <li>✅ Be part of a historic international event</li>
+        <li>✅ Gain behind-the-scenes access</li>
+        <li>✅ Choose from 12 unique volunteer roles</li>
+        <li>✅ Build unforgettable memories and friendships</li>
+        <li>✅ Paid roles also available (supervisors, coordinators)</li>
+      </ul>
+
+      <p style="margin-top: 1em;">
+        <strong>Requirements:</strong><br>
+        🟡 Age 16+<br>
+        🟡 Speak Dutch or English<br>
+        🟡 Available during the event<br>
+        🟡 Wear official volunteer shirt/sweater during shifts<br>
+      </p>
+
+      <p style="margin-top: 1em;">
+        👉 <a href="https://forms.gle/Fu7ApqMNXJofyVCg6" target="_blank" style="font-weight: bold; color: #007acc;">Apply now to become a Tour Maker</a> or explore paid roles!
+      </p>
+    </div>
+  </div>
+</section>
+
+    <section id="baguettistes">
+  <h2>Meet the Baguettistes</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 2em; align-items: center; margin-bottom: 1em;">
+    
+    <!-- Team Photo -->
+    <div style="flex: 1; min-width: 300px;">
+      <img src="3a3b5770-f873-47cb-a518-8fe9f163e768.png" alt="Baguettistes Team" style="width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+    </div>
+
+    <!-- Description -->
+    <div style="flex: 2; min-width: 300px; font-size: 1.05em; line-height: 1.7;">
+      <p>
+        <strong>Baguettistes</strong> is more than an event team — we're a creative force shaped by six Leisure & Events Management students in Leeuwarden.
+        What started as a bold and playful idea inspired by French tradition has grown into a mission to make events that matter.
+      </p>
+      <p>
+        For Grand Départ Arnhem 2028, our focus is clear: deliver an unforgettable experience for thousands of visitors while showcasing
+        the vibrant spirit of Arnhem. We believe in local involvement, storytelling, and creating lasting impressions.
+      </p>
+      <ul style="list-style: square inside; margin-top: 0.5em;">
+        <li>🎉 Bold, young, and passionate about large-scale events</li>
+        <li>🎨 Blending fun with professionalism</li>
+        <li>🌍 Focused on community, creativity, and cultural identity</li>
+      </ul>
+      <p style="margin-top: 1em;"><em>"One place. One city. A whole new image."</em></p>
+    </div>
+  </div>
+</section>
+
+  </main>
+  <footer>
+    &copy; 2028 Grand depart Arnhem
+    <a href="https://www.instagram.com/kreslinsss/" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="ig-logo" />
+</a>
+
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const sections = document.querySelectorAll("main section");
+      const navLinks = document.querySelectorAll("nav a");
+
+      function showSection(id) {
+  sections.forEach(section => {
+    section.classList.remove("active");
+  });
+
+  const activeSection = document.querySelector(id);
+  if (activeSection) {
+    activeSection.classList.add("active");
+  }
+
+  // Background control
+  if (id === "#home") {
+    document.body.style.backgroundColor = "black";
+  } else {
+    document.body.style.backgroundColor = "#f9f9f9";
+  }
+}
+
+
+      navLinks.forEach(link => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          showSection(targetId);
+          history.pushState(null, "", targetId);
+        });
+      });
+
+      const initial = window.location.hash || "#home";
+      showSection(initial);
+    });
+  </script>
+</body>
+</html>
